@@ -3,6 +3,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -53,7 +54,14 @@ namespace OdeToCoffee
                 });
             }
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(this.ConfigureRoutes());
+
+            app.Run(ctx => ctx.Response.WriteAsync("Not found."));
+        }
+
+        private Action<IRouteBuilder> ConfigureRoutes()
+        {
+            return builder => builder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
