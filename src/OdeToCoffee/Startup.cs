@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +28,7 @@ namespace OdeToCoffee
         {
             services.AddSingleton(this.config);
             services.AddSingleton<IMessageGetter, MessageFromConfigGetter>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,16 +39,21 @@ namespace OdeToCoffee
         {
             loggerFactory.AddConsole();
 
+            app.UseFileServer();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.Run(async (context) =>
+            else
             {
-                var msg = messageGetter.GetMessage();
-                await context.Response.WriteAsync(msg);
-            });
+                app.UseExceptionHandler(new ExceptionHandlerOptions()
+                {
+                    ExceptionHandler = context => context.Response.WriteAsync("Niestety, coś poszło nie tak.")
+                });
+            }
+
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
