@@ -1,0 +1,28 @@
+﻿@using OdeToCoffee.Models
+@model IEnumerable<OdeToCoffee.Models.Coffeehouse>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Ode to coffee</title>
+</head>
+<body>
+<div>
+    <h1>Index page</h1>
+    
+    <div>
+        <h3>Kawiarnie: </h3>
+        
+        <table>
+            @foreach (var coffeehouse in Model)
+            {
+                <tr>
+                    <td>@coffeehouse.Name</td>
+                </tr>
+            }  
+        </table>
+    </div>
+</div>
+</body>
+</html>

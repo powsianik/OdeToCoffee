@@ -1,12 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OdeToCoffee.Models;
+using OdeToCoffee.Services;
 
 namespace OdeToCoffee.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        private ICoffehouseData coffeeHousesData;
+
+        public HomeController(ICoffehouseData coffeehousesData)
         {
-            return "Hello MVC";
+            this.coffeeHousesData = coffeehousesData;
+        }
+
+        public IActionResult Index()
+        {
+            var model = this.coffeeHousesData.GetAll();
+
+            return View(model);
         }
     }
 }

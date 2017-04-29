@@ -1,8 +1,6 @@
-﻿using System;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 
-namespace OdeToCoffee
+namespace OdeToCoffee.Services
 {
     public interface IMessageGetter
     {
