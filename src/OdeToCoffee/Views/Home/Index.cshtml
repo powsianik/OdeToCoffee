@@ -1,5 +1,5 @@
 ﻿@using OdeToCoffee.Models
-@model IEnumerable<OdeToCoffee.Models.Coffeehouse>
+@model OdeToCoffee.ViewModels.HomePageViewModel
 
 <!DOCTYPE html>
 
@@ -9,15 +9,20 @@
 </head>
 <body>
 <div>
-    <h1>Index page</h1>
+    <h1>Home page</h1>
+    <br/>
+    <h2>@Model.MessageOfTheDay</h2>
     
     <div>
         <h3>Kawiarnie: </h3>
         
         <table>
-            @foreach (var coffeehouse in Model)
+            @foreach (var coffeehouse in Model.Coffeehouses)
             {
                 <tr>
+                    <td>
+                        <a href="/home/details/@coffeehouse.Id">Details</a>
+                    </td>
                     <td>@coffeehouse.Name</td>
                 </tr>
             }  

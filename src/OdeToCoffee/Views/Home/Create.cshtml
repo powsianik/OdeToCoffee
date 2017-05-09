@@ -1,0 +1,24 @@
+﻿@using OdeToCoffee.Models
+@model OdeToCoffee.Models.Coffeehouse
+
+<div>
+    <h1>Create</h1>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.LabelFor(c => c.Name)
+                @Html.TextBoxFor(c => c.Name)
+                @Html.ValidationMessageFor(c => c.Name)
+            </div>
+            <div>
+                @Html.LabelFor(c => c.Style)
+                @Html.DropDownListFor(c => c.Style, Html.GetEnumSelectList<CoffeehouseStyle>())
+            </div>
+            <div>
+                <input type="submit" value="Save the Coffeehouse"/>
+            </div>
+        }
+    </div>
+</div>
