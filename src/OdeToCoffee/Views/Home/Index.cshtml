@@ -1,33 +1,30 @@
-﻿@using OdeToCoffee.Models
-@model OdeToCoffee.ViewModels.HomePageViewModel
+﻿@model OdeToCoffee.ViewModels.HomePageViewModel
 
-<!DOCTYPE html>
+@{
+    ViewBag.Title = "OdeToCoffee - Index page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<html>
-<head>
-    <title>Ode to coffee</title>
-</head>
-<body>
+<h1>Home page</h1>
+<br />
+
 <div>
-    <h1>Home page</h1>
-    <br/>
-    <h2>@Model.MessageOfTheDay</h2>
-    
-    <div>
-        <h3>Kawiarnie: </h3>
-        
-        <table>
-            @foreach (var coffeehouse in Model.Coffeehouses)
+    <h3>Kawiarnie: </h3>
+
+    <table>
+        @foreach (var coffeehouse in Model.Coffeehouses)
             {
-                <tr>
-                    <td>
-                        <a href="/home/details/@coffeehouse.Id">Details</a>
-                    </td>
-                    <td>@coffeehouse.Name</td>
-                </tr>
-            }  
-        </table>
-    </div>
+            <tr>
+                <td>
+                    <a href="/home/details/@coffeehouse.Id">Details</a>
+                </td>
+                <td>@coffeehouse.Name</td>
+            </tr>
+        }
+    </table>
 </div>
-</body>
-</html>
+
+@section footer
+{
+    <h3>@Model.MessageOfTheDay</h3>
+}
