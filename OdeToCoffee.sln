@@ -1,18 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9D625E6D-114F-4760-85E4-4EE67701E0F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F0C9F65-3346-4AA8-83A9-D652C851D4E1}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OdeToCoffee", "src\OdeToCoffee\OdeToCoffee.xproj", "{454C3132-9077-45B3-9476-C8179919C814}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToCoffee", "src\OdeToCoffee\OdeToCoffee.csproj", "{454C3132-9077-45B3-9476-C8179919C814}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OdeToCoffee.Model", "src\OdeToCoffee.Model\OdeToCoffee.Model.xproj", "{EFF501F3-EF01-42C5-86A1-B58C89E3799F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToCoffee.Model", "src\OdeToCoffee.Model\OdeToCoffee.Model.csproj", "{EFF501F3-EF01-42C5-86A1-B58C89E3799F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

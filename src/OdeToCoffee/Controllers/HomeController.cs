@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OdeToCoffee.Model;
 using OdeToCoffee.Models;
 using OdeToCoffee.Services;
 using OdeToCoffee.ViewModels;
@@ -7,10 +8,10 @@ namespace OdeToCoffee.Controllers
 {
     public class HomeController : Controller
     {
-        private ICoffehouseData coffeeHousesData;
+        private ICoffehouseDataProvider coffeeHousesData;
         private IMessageGetter messageGetter;
 
-        public HomeController(ICoffehouseData coffeehousesData, IMessageGetter messageGetter)
+        public HomeController(ICoffehouseDataProvider coffeehousesData, IMessageGetter messageGetter)
         {
             this.coffeeHousesData = coffeehousesData;
             this.messageGetter = messageGetter;

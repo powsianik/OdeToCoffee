@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using OdeToCoffee.Models;
 
-namespace OdeToCoffee.Services
+namespace OdeToCoffee.Model.DataProviders
 {
-    public interface ICoffehouseData
-    {
-        IEnumerable<Coffeehouse> GetAll();
-        Coffeehouse Get(int id);
-        Coffeehouse Add(Coffeehouse newCoffeehouse);
-    }
-
-    public class InMemoryCoffeehouseData : ICoffehouseData
+    public class InMemoryCoffeehouseDataProviderProvider : ICoffehouseDataProvider
     {
         private static List<Coffeehouse> coffeehouses = new List<Coffeehouse>()
         {
@@ -30,12 +22,12 @@ namespace OdeToCoffee.Services
 
         public Coffeehouse Get(int id)
         {
-            return coffeehouses.FirstOrDefault(c => c.Id == id);
+            return Enumerable.FirstOrDefault<Coffeehouse>(coffeehouses, c => c.Id == id);
         }
 
         public Coffeehouse Add(Coffeehouse newCoffeehouse)
         {
-            newCoffeehouse.Id = coffeehouses.Max(c => c.Id) + 1;
+            newCoffeehouse.Id = Enumerable.Max<Coffeehouse>(coffeehouses, c => c.Id) + 1;
             coffeehouses.Add(newCoffeehouse);
 
             return newCoffeehouse;
