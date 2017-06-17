@@ -1,6 +1,9 @@
-﻿@model OdeToCoffee.Models.Coffeehouse
+﻿@using OdeToCoffee.Model.Entities
+@model OdeToCoffee.Model.Entities.Coffeehouse
 
-<!DOCTYPE html>
+@{
+    ViewBag.Title = "Show the details of coffehouse";
+}
 
 <h1>@Model.Name</h1>
 <h2>@Model.Id</h2>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OdeToCoffee.Model;
-using OdeToCoffee.Models;
+using OdeToCoffee.Model.Entities;
 using OdeToCoffee.Services;
 using OdeToCoffee.ViewModels;
 

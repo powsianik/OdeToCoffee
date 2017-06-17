@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OdeToCoffee.Models
+namespace OdeToCoffee.Model.Entities
 {
     public enum CoffeehouseStyle
     {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OdeToCoffee.Models;
+using OdeToCoffee.Model.Entities;
 
 namespace OdeToCoffee.Model
 {

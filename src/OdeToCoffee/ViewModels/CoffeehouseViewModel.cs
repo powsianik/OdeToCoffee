@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using OdeToCoffee.Models;
+using OdeToCoffee.Model.Entities;
 
 namespace OdeToCoffee.ViewModels
 {
