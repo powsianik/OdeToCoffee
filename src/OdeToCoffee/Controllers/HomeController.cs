@@ -60,5 +60,35 @@ namespace OdeToCoffee.Controllers
 
             return RedirectToAction(nameof(this.Details), new { id = newCoffeehouse.Id });
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var model = this.coffeeHousesData.Get(id);
+
+            if (model == null)
+            {
+                return RedirectToAction(nameof(this.Index));
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, CoffeehouseViewModel coffeeHouse)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var coffeHouseForEdit = this.coffeeHousesData.Get(id);
+            coffeHouseForEdit.Name = coffeeHouse.Name;
+            coffeHouseForEdit.Style = coffeeHouse.Style;
+
+            this.coffeeHousesData.Update(coffeHouseForEdit);
+
+            return RedirectToAction(nameof(this.Details), new {id = coffeHouseForEdit.Id});
+        }
     }
 }

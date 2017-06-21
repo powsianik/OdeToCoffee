@@ -30,5 +30,11 @@ namespace OdeToCoffee.Model.DataProviders
 
             return newCoffeehouse;
         }
+
+        public void Update(Coffeehouse coffeehouse)
+        {
+            this.dbContext.Update(coffeehouse);
+            this.dbContext.SaveChanges();
+        }
     }
 }

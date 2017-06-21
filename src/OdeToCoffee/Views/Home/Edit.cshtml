@@ -1,0 +1,27 @@
+﻿@model OdeToCoffee.Model.Entities.Coffeehouse
+
+@{
+    ViewBag.Title = "Edit the coffehouse";
+}
+
+<div>
+    <h1>Edit @Model.Name</h1>
+
+    <div>
+        <form method="post" asp-antiforgery="true">
+            <div>
+                <label asp-for="Name"></label>
+                <input asp-for="Name"/>
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div>
+                <label asp-for="Style"></label>
+                <select asp-for="Style" asp-items="@Html.GetEnumSelectList(typeof(CoffeehouseStyle))"></select>
+                <span asp-validation-for="Style"></span>
+            </div>
+            <div>
+                <input type="submit" value="Save!"/>
+            </div>
+        </form>
+    </div>
+</div>

@@ -8,5 +8,6 @@ namespace OdeToCoffee.Model
         IEnumerable<Coffeehouse> GetAll();
         Coffeehouse Get(int id);
         Coffeehouse Add(Coffeehouse newCoffeehouse);
+        void Update(Coffeehouse coffeehouse);
     }
 }

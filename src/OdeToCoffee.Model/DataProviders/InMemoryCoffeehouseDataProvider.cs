@@ -32,5 +32,10 @@ namespace OdeToCoffee.Model.DataProviders
 
             return newCoffeehouse;
         }
+
+        public void Update(Coffeehouse coffeehouse)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
