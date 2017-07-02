@@ -9,9 +9,10 @@ using OdeToCoffee.Model.Entities;
 namespace OdeToCoffee.Model.Migrations
 {
     [DbContext(typeof(OdeToCoffeeDbContext))]
-    partial class OdeToCoffeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170702105359_Identity")]
+    partial class Identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
