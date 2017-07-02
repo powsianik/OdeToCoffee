@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OdeToCoffee.Model;
 using OdeToCoffee.Model.DataProviders;
+using OdeToCoffee.Model.Entities;
 using OdeToCoffee.Services;
 
 namespace OdeToCoffee
@@ -35,6 +37,8 @@ namespace OdeToCoffee
             services.AddScoped<ICoffehouseDataProvider, SqlCoffeehouseDataProvider>();
             services.AddDbContext<OdeToCoffeeDbContext>(options => options.UseSqlServer(this.config.GetConnectionString("DefaultConnection")));
             services.AddMvc();
+            services.AddIdentity<User, IdentityRole>()
+                    .AddEntityFrameworkStores<OdeToCoffeeDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +62,8 @@ namespace OdeToCoffee
                     ExceptionHandler = context => context.Response.WriteAsync("Niestety, coś poszło nie tak.")
                 });
             }
+
+            app.UseIdentity();
 
             app.UseMvc(this.ConfigureRoutes());
 

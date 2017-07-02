@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OdeToCoffee.Model;
 using OdeToCoffee.Model.Entities;
 using OdeToCoffee.Services;
@@ -6,6 +7,7 @@ using OdeToCoffee.ViewModels;
 
 namespace OdeToCoffee.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private ICoffehouseDataProvider coffeeHousesData;
@@ -17,6 +19,7 @@ namespace OdeToCoffee.Controllers
             this.messageGetter = messageGetter;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomePageViewModel();
