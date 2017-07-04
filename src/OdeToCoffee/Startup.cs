@@ -67,8 +67,6 @@ namespace OdeToCoffee
             app.UseIdentity();
 
             app.UseMvc(this.ConfigureRoutes());
-
-            app.Run(ctx => ctx.Response.WriteAsync("Not found."));
         }
 
         private Action<IRouteBuilder> ConfigureRoutes()
