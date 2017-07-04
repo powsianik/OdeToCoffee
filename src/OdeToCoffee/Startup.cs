@@ -50,6 +50,7 @@ namespace OdeToCoffee
             loggerFactory.AddConsole();
 
             app.UseFileServer();
+            app.UseNodeModules(env.ContentRootPath);
 
             if (env.IsDevelopment())
             {
